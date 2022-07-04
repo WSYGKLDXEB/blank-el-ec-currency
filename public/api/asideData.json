@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "path": " /",
+      "path": "/",
       "name": "home",
       "label": "首页",
       "icon": "s-home",
@@ -11,32 +11,32 @@
       "path": "/mall",
       "name": "mall",
       "label": "商品管理",
-      "icon": "video-play",
+      "icon": "s-goods",
       "url": "Mall/Mall"
     },
     {
       "path": "/user",
       "name": "user",
       "label": "用户管理",
-      "icon": "user",
+      "icon": "user-solid",
       "url": "User/User"
     },
     {
       "label": "其他",
-      "icon": "location",
+      "icon": "s-help",
       "children": [
         {
           "path": "/page1",
           "name": "page1",
           "label": "页面1",
-          "icon": "setting",
+          "icon": "help",
           "url": "Other/PageOne"
         },
         {
           "path": "/page2",
           "name": "page2",
           "label": "页面2",
-          "icon": "setting",
+          "icon": "help",
           "url": "Other/PageTwo"
         }
       ]

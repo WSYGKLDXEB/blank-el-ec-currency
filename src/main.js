@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
-import './plugins/element.js'
 import router from './router'
+import './plugins/element.js'
+import '@/assets/css/index.less'
+// import '@/assets/css/blank-px.css'
 
 Vue.config.productionTip = false
 
