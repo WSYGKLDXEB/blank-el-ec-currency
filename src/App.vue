@@ -17,7 +17,7 @@
             </template>
             <!-- 二级菜单 -->
             <el-menu-item-group v-for="subItem in menuData[3].children" :key="subItem.id">
-              <template slot="title">青稞</template>
+              <template slot="title">青稞666</template>
               <el-menu-item :index="subItem.path">
                 <i :class="'el-icon-' + subItem.icon"></i>
                 <span>{{ subItem.label }}</span>
