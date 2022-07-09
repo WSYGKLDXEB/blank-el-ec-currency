@@ -31,7 +31,7 @@
           <div>
             <el-button plain type="primary" icon="el-icon-menu" size="small" @click="isCollapse = !isCollapse"></el-button>
           </div>
-          <el-dropdown trigger="click">
+          <el-dropdown trigger="hover">
             <span>
               <!-- <el-image style="width: 100px; height: 100px" src="./assets/images/user-default.png" fit="cover"></el-image> -->
               <img style="width: 34px; height: 34px" src="./assets/images/user-default.png" alt="" />
