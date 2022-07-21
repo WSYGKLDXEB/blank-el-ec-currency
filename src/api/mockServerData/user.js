@@ -1,19 +1,12 @@
 import Mock from 'mockjs'
 
 // get请求从config.url获取参数，post从config.body中获取参数
-function param2Obj (url) {
+function param2Obj(url) {
   const search = url.split('?')[1]
   if (!search) {
     return {}
   }
-  return JSON.parse(
-    '{"' +
-    decodeURIComponent(search)
-      .replace(/"/g, '\\"')
-      .replace(/&/g, '","')
-      .replace(/=/g, '":"') +
-    '"}'
-  )
+  return JSON.parse('{"' + decodeURIComponent(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}')
 }
 
 let List = []
@@ -39,10 +32,10 @@ export default {
    * @param name, page, limit
    * @return {{code: number, count: number, data: *[]}}
    */
-  getUserList: config => {
+  getUserList: (config) => {
     const { name, page = 1, limit = 20 } = param2Obj(config.url)
     console.log('name:' + name, 'page:' + page, '分页大小limit:' + limit)
-    const mockList = List.filter(user => {
+    const mockList = List.filter((user) => {
       if (name && user.name.indexOf(name) === -1 && user.addr.indexOf(name) === -1) return false
       return true
     })
@@ -58,7 +51,7 @@ export default {
    * @param name, addr, age, birth, sex
    * @return {{code: number, data: {message: string}}}
    */
-  createUser: config => {
+  createUser: (config) => {
     const { name, addr, age, birth, sex } = JSON.parse(config.body)
     console.log(JSON.parse(config.body))
     List.unshift({
@@ -81,7 +74,7 @@ export default {
    * @param id
    * @return {*}
    */
-  deleteUser: config => {
+  deleteUser: (config) => {
     const { id } = param2Obj(config.url)
     if (!id) {
       return {
@@ -89,7 +82,7 @@ export default {
         message: '参数不正确'
       }
     } else {
-      List = List.filter(u => u.id !== id)
+      List = List.filter((u) => u.id !== id)
       return {
         code: 20000,
         message: '删除成功'
@@ -101,10 +94,10 @@ export default {
    * @param config
    * @return {{code: number, data: {message: string}}}
    */
-  batchremove: config => {
+  batchremove: (config) => {
     let { ids } = param2Obj(config.url)
     ids = ids.split(',')
-    List = List.filter(u => !ids.includes(u.id))
+    List = List.filter((u) => !ids.includes(u.id))
     return {
       code: 20000,
       data: {
@@ -117,18 +110,19 @@ export default {
    * @param id, name, addr, age, birth, sex
    * @return {{code: number, data: {message: string}}}
    */
-  updateUser: config => {
+  updateUser: (config) => {
     const { id, name, addr, age, birth, sex } = JSON.parse(config.body)
-    const sex_num = parseInt(sex)
-    List.some(u => {
+    const sexNum = parseInt(sex)
+    List.some((u) => {
       if (u.id === id) {
         u.name = name
         u.addr = addr
         u.age = age
         u.birth = birth
-        u.sex = sex_num
+        u.sex = sexNum
         return true
       }
+      return false
     })
     return {
       code: 20000,

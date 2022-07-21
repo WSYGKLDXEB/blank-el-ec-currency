@@ -6,7 +6,7 @@ import * as echarts from 'echarts'
 import './plugins/element.js'
 import '@/assets/css/index.less'
 // import '@/assets/css/blank-px.css'
-
+import './api/mock.js'
 Vue.config.productionTip = false
 Vue.prototype.$echarts = echarts
 
