@@ -18,7 +18,7 @@
           </div>
         </el-card>
         <!-- 表格 -->
-        <el-card class="box-card" style="margin-top: 15px; height: calc(76vh - 140px);">
+        <el-card class="box-card" style="margin-top: 15px; height: calc(76vh - 160px);">
           <el-table :data="homeData.tableData" style="width: 100%">
             <el-table-column prop="name" label="品牌"> </el-table-column>
             <el-table-column prop="todayBuy" label="日购买量"> </el-table-column>
@@ -59,11 +59,11 @@
         <div style="margin-top: 15px; display: flex">
           <!-- 柱形图 -->
           <el-card style="flex: 48%; margin-right: 20px">
-            <div class="chart_line" ref="chart_bar" style="width: 100%; height: calc(68vh - 375px);"></div>
+            <div class="chart_line" ref="chart_bar" style="width: 100%; height: calc(68vh - 395px);"></div>
           </el-card>
           <!-- 饼图 -->
           <el-card style="flex: 48%">
-            <div class="chart_line" ref="chart_pic" style="width: 100%; height: calc(68vh - 375px);"></div>
+            <div class="chart_line" ref="chart_pic" style="width: 100%; height: calc(68vh - 395px);"></div>
           </el-card>
         </div>
       </el-col>

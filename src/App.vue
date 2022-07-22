@@ -42,7 +42,7 @@
           </el-dropdown>
         </el-header>
         <el-main>
-          <tag-nav></tag-nav>
+          <tag-nav :from="fromPath"></tag-nav>
           <router-view></router-view>
         </el-main>
       </el-container>
@@ -61,7 +61,28 @@ export default {
       // asideWidth: '160px',
       // 菜单展开与否
       isCollapse: false,
-      menuData: []
+      menuData: [],
+      fromPath: {}
+    }
+  },
+  watch: {
+    $route(to, from) {
+      console.log(to)
+      if (this.menuData) {
+        let obj
+        console.log(to.path.slice(0, -1))
+        if (to.path.slice(0, -1) === '/page') {
+          obj = this.menuData[3].children.filter((item) => item.path === to.path)[0]
+        } else {
+          obj = this.menuData.filter((item) => item.path === to.path)[0]
+        }
+
+        this.fromPath = {
+          name: obj.label,
+          path: obj.path
+        }
+        console.log(this.fromPath)
+      }
     }
   },
   created() {
@@ -110,8 +131,7 @@ export default {
   justify-content: space-between;
   align-items: center;
 }
-.el-main{
-
+.el-main {
 }
 // 折叠按钮
 .fold {
